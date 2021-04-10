@@ -1,6 +1,7 @@
 import React from 'react'
 
 import {
+    Image,
     View,
     StatusBar,
     Text,
@@ -24,9 +25,15 @@ function Home ({ navigation }) {
                 backgroundColor={ themes.light.colorBrand }
                 barStyle='dark' />
 
+            <Image
+                style={ styles.logo }
+                source={ require('../../assets/logo.png') } />
+
+            <Text style={ styles.appName }>ClearMAC</Text>
+
             <TouchableOpacity
                 onPress={ () => navigation.navigate('SearchScreen') }
-                style={ styles.searchInput }>
+                style={{ ...styles.searchInput, marginTop: 30 }}>
                 <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
 
                     <FontAwesomeIcon
@@ -37,6 +44,8 @@ function Home ({ navigation }) {
 
                 </View>
             </TouchableOpacity>
+
+            <Text style={ styles.footer }>© 2021 UPNET</Text>
 
         </View>
     )

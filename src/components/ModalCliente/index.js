@@ -3,6 +3,8 @@ import React from 'react'
 import {
     ActivityIndicator,
     Modal,
+    Pressable,
+    ScrollView,
     Text,
     View
 } from 'react-native'
@@ -29,7 +31,11 @@ export default (props) => {
 
 
     const renderLogins = () => (
-        logins.map((login, index ) => <LoginCliente token={ props.token } key={ login.id } login={ login } last={ (index == logins.length - 1) } />)
+        <ScrollView style={{ paddingHorizontal: 20 }}>
+            {logins.map((login, index ) => (
+                <LoginCliente token={ props.token } key={ login.id } login={ login } last={ (index == logins.length - 1) } />
+            ))}
+        </ScrollView>
     )
 
 
@@ -40,11 +46,12 @@ export default (props) => {
             visible={ props.visible }
             onRequestClose={ () => props.handler.call(this, !props.visible) }>
             <View style={ styles.container }>
-                <View style={ styles.content }>
+                
+                <Toast style={{ elevation: 6 }} ref={ ref => Toast.setRef(ref) } />
 
-                    <Toast ref={ ref => Toast.setRef(ref) } />
+                <View style={ styles.content }>
     
-                    <Text style={{ ...styles.title, marginTop: 16 }} numberOfLines={ 1 }>
+                    <Text style={{ ...styles.title }} numberOfLines={ 1 }>
                         { props.cliente ? props.cliente.razao : '' }
                     </Text>
                     <Text style={{ ...styles.subtitle, marginBottom: 16 }}>
@@ -52,6 +59,12 @@ export default (props) => {
                     </Text>
 
                     { renderLogins() }
+
+                    <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginTop: 16 }}>
+                        <Pressable style={ styles.button } onPress={ () => props.handler.call(this, false) }>
+                            <Text style={ styles.btnText }>FECHAR</Text>
+                        </Pressable>
+                    </View>
     
                 </View>
             </View>
