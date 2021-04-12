@@ -12,6 +12,8 @@ import {
     View
 } from 'react-native'
 
+import Toast from 'react-native-toast-message'
+
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowLeft, faTimes } from '@fortawesome/free-solid-svg-icons'
 
@@ -138,6 +140,7 @@ export default function Search({ navigation }) {
                     {clientes.map((cliente) => (
                         <Cliente
                             key={ cliente.id }
+                            token={ token }
                             cliente={ cliente }
                             onPress={ handleModalVisibility } />
                     ))}
@@ -161,6 +164,8 @@ export default function Search({ navigation }) {
                 animated={true}
                 backgroundColor={ themes.light.colorWhite }
                 barStyle='dark-content' />
+
+            <Toast style={{ elevation: 10 }} ref={ ref => Toast.setRef(ref) } />
 
             <View style={ styles.formSection }>
 

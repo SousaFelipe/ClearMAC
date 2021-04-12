@@ -32,8 +32,8 @@ export default (props) => {
 
     const renderLogins = () => (
         <ScrollView style={{ paddingHorizontal: 20 }}>
-            {logins.map((login, index ) => (
-                <LoginCliente token={ props.token } key={ login.id } login={ login } last={ (index == logins.length - 1) } />
+            {logins.map((login, index) => (
+                <LoginCliente key={ login.id } token={ props.token } login={ login } last={ (index == logins.length - 1) } />
             ))}
         </ScrollView>
     )
@@ -47,7 +47,7 @@ export default (props) => {
             onRequestClose={ () => props.handler.call(this, !props.visible) }>
             <View style={ styles.container }>
                 
-                <Toast style={{ elevation: 6 }} ref={ ref => Toast.setRef(ref) } />
+                <Toast ref={ ref => Toast.setRef(ref) } />
 
                 <View style={ styles.content }>
     

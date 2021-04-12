@@ -23,6 +23,9 @@ import functions from '../../../utils/functions'
 export default (props) => {
 
 
+
+    const [clearing, setClearing] = useState(false)
+    const [textMAC, setTextMAC] = useState(mac)
     const [login, setLogin] = useState({})
     const [mac, setMAC] = useState('')
 
@@ -33,6 +36,11 @@ export default (props) => {
         setMAC(props.login.mac)
 
     }, [])
+
+
+    useEffect(() => {
+        setTextMAC(clearing ? 'EXCLUINDO MAC...' : (mac || 'Clear!'))
+    })
 
 
     const handleCopyPPPoE = async () => {
@@ -64,6 +72,8 @@ export default (props) => {
 
 
     const handleClearMAC = () => {
+        setClearing(true)
+
         const url = `provedor/logins/clear/${ login.id }`
 
         new api().token(props.token).request().get(url).then(async (response) => {
@@ -78,17 +88,15 @@ export default (props) => {
                     text2: data.message
                 })
 
-                if (success) {
-                    setMAC('Clear!')
-                }
+                if (success) setMAC('Clear!')
             }
-            else {
-                Toast.show({
-                    type: 'error',
-                    text1: 'Erro!',
-                    text2: 'Erro ao se comunicar com o servidor!'
-                })
-            }
+            else Toast.show({
+                type: 'error',
+                text1: 'Erro!',
+                text2: 'Erro ao se comunicar com o servidor!'
+            })
+
+            setClearing(false)
         })
     }
 
@@ -100,7 +108,6 @@ export default (props) => {
 
 
     return (
-        
         <View style={ props.last ? styles.container : styles.borderedContainer }>
 
             <View style={ styles.pppoeContent }>
@@ -141,7 +148,7 @@ export default (props) => {
                         style={ styles.copyContent }
                         delayLongPress={2000}
                         onLongPress={ handleClearMAC }>
-                        <Text style={ styles.mac } numberOfLines={ 1 }>{ (mac || 'Clear!') }</Text>
+                        <Text style={ styles.mac } numberOfLines={ 1 }>{ textMAC }</Text>
                     </Pressable>
 
                 </View>

@@ -20,8 +20,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        marginStart: 12,
-        marginEnd: 16
+        marginStart: 6,
+        marginEnd: 16,
+        paddingHorizontal: 6
     },
 
     textContent: {

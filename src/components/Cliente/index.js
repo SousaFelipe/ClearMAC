@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import {
+    ActivityIndicator,
     TouchableHighlight,
     Text,
     View
 } from 'react-native'
+
+import Toast from 'react-native-toast-message'
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faUserCircle, faRedoAlt, faArrowRight } from '@fortawesome/free-solid-svg-icons'
@@ -14,6 +17,9 @@ import ButtonIcon from '../ButtonIcon'
 import styles from './styles'
 import themes from '../../styles/themes'
 
+import api from '../../utils/api'
+import functions from '../../utils/functions'
+
 
 
 function Cliente (props) {
@@ -22,14 +28,47 @@ function Cliente (props) {
     const cliente = props.cliente
 
 
-    const getActionIcon = () => (
-        <ButtonIcon
-            onPress={ () => { console.log('MAC limpo!') } }>
+    const [clearing, setClearing] = useState(false)
+
+
+    const hasJustOne = () => (cliente.logins.length == 1)
+
+
+    const handleClearMAC = () => {
+        setClearing(true)
+
+        const url = `provedor/logins/clear/${ cliente.logins[0].id }`
+
+        new api().token(props.token).request().get(url).then(async (response) => {
+            const data = await response.data
+
+            if (functions.http.isOK(response)) {
+                const success = (data.type == 'success')
+                Toast.show({
+                    type: success ? 'success' : 'error',
+                    text1: success ? 'MAC removido!' : 'Erro!',
+                    text2: data.message
+                })
+            }
+            else Toast.show({
+                type: 'error',
+                text1: 'Erro!',
+                text2: 'Erro ao se comunicar com o servidor!'
+            })
+
+            setClearing(false)
+        })
+    }
+
+
+    const getActionIcon = () => (clearing
+        ? <ActivityIndicator size="small" color={ themes.light.colorBrand } />
+        : <ButtonIcon onPress={ () => { if (hasJustOne()) handleClearMAC() } }>
             <FontAwesomeIcon
                 size={ 18 }
-                icon={ ((cliente.logins.length == 1) ? faRedoAlt : faArrowRight) }
+                icon={ hasJustOne() ? faRedoAlt : faArrowRight }
                 color={ getColorActionIcon() } />
-        </ButtonIcon>
+         </ButtonIcon>
     )
 
 
