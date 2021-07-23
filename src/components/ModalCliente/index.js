@@ -11,6 +11,10 @@ import {
 
 import Toast from 'react-native-toast-message'
 
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faExpand } from '@fortawesome/free-solid-svg-icons'
+
+import ButtonIcon from '../ButtonIcon'
 import LoginCliente from './LoginCliente'
 
 import styles from './styles'
@@ -22,6 +26,19 @@ export default (props) => {
 
 
     const logins = (props.cliente && props.cliente.logins) ? props.cliente.logins : []
+
+
+    const renderContratos = () => {
+        return (
+            <ButtonIcon>
+                { `01 CONTRATO ATIVO` }
+                <FontAwesomeIcon
+                    size={ 18 }
+                    icon={ faExpand }
+                    color={ themes.light.colorTextSecondary } />
+            </ButtonIcon>
+        )
+    }
     
 
     const renderCount = () => {
