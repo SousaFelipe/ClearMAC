@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 node_modules/
 .expo/
+=======
+node_modules/**/*
+.expo/*
+>>>>>>> 1384d75 (Clena MAC system ok)
 npm-debug.*
 *.jks
 *.p8

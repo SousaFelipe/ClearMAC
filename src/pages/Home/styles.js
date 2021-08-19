@@ -9,8 +9,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
+<<<<<<< HEAD
         alignItems: 'stretch',
         paddingTop: 48,
+=======
+        justifyContent: 'center',
+        alignItems: 'stretch',
+>>>>>>> 1384d75 (Clena MAC system ok)
         paddingHorizontal: 16,
         backgroundColor: themes.light.colorLight
     },
@@ -32,6 +37,7 @@ const styles = StyleSheet.create({
         elevation: 2
     },
 
+<<<<<<< HEAD
     logo: {
         width: 86,
         height: 86,
@@ -46,10 +52,13 @@ const styles = StyleSheet.create({
         color: themes.light.colorTextSecondary
     },
 
+=======
+>>>>>>> 1384d75 (Clena MAC system ok)
     searchText: {
         marginStart: 14,
         fontSize: 18,
         color: themes.light.colorTextDisabled
+<<<<<<< HEAD
     },
 
     footer: {
@@ -58,6 +67,8 @@ const styles = StyleSheet.create({
         bottom: 8,
         fontSize: 14,
         color: themes.light.colorTextDisabled
+=======
+>>>>>>> 1384d75 (Clena MAC system ok)
     }
 
 })

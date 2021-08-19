@@ -20,9 +20,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
+<<<<<<< HEAD
         marginStart: 6,
         marginEnd: 16,
         paddingHorizontal: 6
+=======
+        marginStart: 12,
+        marginEnd: 16
+>>>>>>> 1384d75 (Clena MAC system ok)
     },
 
     textContent: {

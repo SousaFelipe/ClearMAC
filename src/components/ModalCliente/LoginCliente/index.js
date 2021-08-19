@@ -23,9 +23,12 @@ import functions from '../../../utils/functions'
 export default (props) => {
 
 
+<<<<<<< HEAD
 
     const [clearing, setClearing] = useState(false)
     const [textMAC, setTextMAC] = useState(mac)
+=======
+>>>>>>> 1384d75 (Clena MAC system ok)
     const [login, setLogin] = useState({})
     const [mac, setMAC] = useState('')
 
@@ -38,11 +41,14 @@ export default (props) => {
     }, [])
 
 
+<<<<<<< HEAD
     useEffect(() => {
         setTextMAC(clearing ? 'EXCLUINDO MAC...' : (mac || 'Clear!'))
     })
 
 
+=======
+>>>>>>> 1384d75 (Clena MAC system ok)
     const handleCopyPPPoE = async () => {
         Clipboard.setString(login.login)
 
@@ -72,8 +78,11 @@ export default (props) => {
 
 
     const handleClearMAC = () => {
+<<<<<<< HEAD
         setClearing(true)
 
+=======
+>>>>>>> 1384d75 (Clena MAC system ok)
         const url = `provedor/logins/clear/${ login.id }`
 
         new api().token(props.token).request().get(url).then(async (response) => {
@@ -88,6 +97,7 @@ export default (props) => {
                     text2: data.message
                 })
 
+<<<<<<< HEAD
                 if (success) setMAC('Clear!')
             }
             else Toast.show({
@@ -97,6 +107,19 @@ export default (props) => {
             })
 
             setClearing(false)
+=======
+                if (success) {
+                    setMAC('Clear!')
+                }
+            }
+            else {
+                Toast.show({
+                    type: 'error',
+                    text1: 'Erro!',
+                    text2: 'Erro ao se comunicar com o servidor!'
+                })
+            }
+>>>>>>> 1384d75 (Clena MAC system ok)
         })
     }
 
@@ -108,6 +131,10 @@ export default (props) => {
 
 
     return (
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 1384d75 (Clena MAC system ok)
         <View style={ props.last ? styles.container : styles.borderedContainer }>
 
             <View style={ styles.pppoeContent }>
@@ -148,7 +175,11 @@ export default (props) => {
                         style={ styles.copyContent }
                         delayLongPress={2000}
                         onLongPress={ handleClearMAC }>
+<<<<<<< HEAD
                         <Text style={ styles.mac } numberOfLines={ 1 }>{ textMAC }</Text>
+=======
+                        <Text style={ styles.mac } numberOfLines={ 1 }>{ (mac || 'Clear!') }</Text>
+>>>>>>> 1384d75 (Clena MAC system ok)
                     </Pressable>
 
                 </View>

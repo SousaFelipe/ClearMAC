@@ -12,8 +12,11 @@ import {
     View
 } from 'react-native'
 
+<<<<<<< HEAD
 import Toast from 'react-native-toast-message'
 
+=======
+>>>>>>> 1384d75 (Clena MAC system ok)
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowLeft, faTimes } from '@fortawesome/free-solid-svg-icons'
 
@@ -51,12 +54,20 @@ export default function Search({ navigation }) {
     const [modalVisible, setModalVisible] = useState(false)
     const [clienteOnModal, setClienteOnModal] = useState(null)
 
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 1384d75 (Clena MAC system ok)
     const inputSearchRef = useRef()
 
 
     useEffect(() => {
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 1384d75 (Clena MAC system ok)
         (Platform.OS === 'ios')
             ? inputSearchRef.current.focus()
             : setTimeout(() => inputSearchRef.current.focus(), 50)
@@ -84,7 +95,11 @@ export default function Search({ navigation }) {
             
             setInputSearchTimer(
                 setTimeout(() => {
+<<<<<<< HEAD
                     const url = `clientes/listar/${ input }`
+=======
+                    const url = `clientes/find/${ input }`
+>>>>>>> 1384d75 (Clena MAC system ok)
 
                     new api().token(token).request().get(url).then(async (response) => {
                         const data = await response.data
@@ -140,7 +155,10 @@ export default function Search({ navigation }) {
                     {clientes.map((cliente) => (
                         <Cliente
                             key={ cliente.id }
+<<<<<<< HEAD
                             token={ token }
+=======
+>>>>>>> 1384d75 (Clena MAC system ok)
                             cliente={ cliente }
                             onPress={ handleModalVisibility } />
                     ))}
@@ -165,8 +183,11 @@ export default function Search({ navigation }) {
                 backgroundColor={ themes.light.colorWhite }
                 barStyle='dark-content' />
 
+<<<<<<< HEAD
             <Toast style={{ elevation: 10 }} ref={ ref => Toast.setRef(ref) } />
 
+=======
+>>>>>>> 1384d75 (Clena MAC system ok)
             <View style={ styles.formSection }>
 
                 <ButtonIcon

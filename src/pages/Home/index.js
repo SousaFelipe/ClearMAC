@@ -1,7 +1,10 @@
 import React from 'react'
 
 import {
+<<<<<<< HEAD
     Image,
+=======
+>>>>>>> 1384d75 (Clena MAC system ok)
     View,
     StatusBar,
     Text,
@@ -25,6 +28,7 @@ function Home ({ navigation }) {
                 backgroundColor={ themes.light.colorBrand }
                 barStyle='dark' />
 
+<<<<<<< HEAD
             <Image
                 style={ styles.logo }
                 source={ require('../../assets/logo.png') } />
@@ -34,6 +38,11 @@ function Home ({ navigation }) {
             <TouchableOpacity
                 onPress={ () => navigation.navigate('SearchScreen') }
                 style={{ ...styles.searchInput, marginTop: 30 }}>
+=======
+            <TouchableOpacity
+                onPress={ () => navigation.navigate('SearchScreen') }
+                style={ styles.searchInput }>
+>>>>>>> 1384d75 (Clena MAC system ok)
                 <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
 
                     <FontAwesomeIcon
@@ -45,8 +54,11 @@ function Home ({ navigation }) {
                 </View>
             </TouchableOpacity>
 
+<<<<<<< HEAD
             <Text style={ styles.footer }>© 2021 UPNET</Text>
 
+=======
+>>>>>>> 1384d75 (Clena MAC system ok)
         </View>
     )
 }

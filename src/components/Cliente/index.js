@@ -1,14 +1,23 @@
+<<<<<<< HEAD
 import React, { useState } from 'react'
 
 import {
     ActivityIndicator,
+=======
+import React from 'react'
+
+import {
+>>>>>>> 1384d75 (Clena MAC system ok)
     TouchableHighlight,
     Text,
     View
 } from 'react-native'
 
+<<<<<<< HEAD
 import Toast from 'react-native-toast-message'
 
+=======
+>>>>>>> 1384d75 (Clena MAC system ok)
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faUserCircle, faRedoAlt, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
@@ -17,9 +26,12 @@ import ButtonIcon from '../ButtonIcon'
 import styles from './styles'
 import themes from '../../styles/themes'
 
+<<<<<<< HEAD
 import api from '../../utils/api'
 import functions from '../../utils/functions'
 
+=======
+>>>>>>> 1384d75 (Clena MAC system ok)
 
 
 function Cliente (props) {
@@ -28,6 +40,7 @@ function Cliente (props) {
     const cliente = props.cliente
 
 
+<<<<<<< HEAD
     const [clearing, setClearing] = useState(false)
 
 
@@ -69,6 +82,16 @@ function Cliente (props) {
                 icon={ hasJustOne() ? faRedoAlt : faArrowRight }
                 color={ getColorActionIcon() } />
          </ButtonIcon>
+=======
+    const getActionIcon = () => (
+        <ButtonIcon
+            onPress={ () => { console.log('MAC limpo!') } }>
+            <FontAwesomeIcon
+                size={ 18 }
+                icon={ ((cliente.logins.length == 1) ? faRedoAlt : faArrowRight) }
+                color={ getColorActionIcon() } />
+        </ButtonIcon>
+>>>>>>> 1384d75 (Clena MAC system ok)
     )
 
 

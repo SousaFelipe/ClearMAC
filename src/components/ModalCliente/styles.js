@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
+<<<<<<< HEAD
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'stretch',
@@ -21,6 +22,20 @@ const styles = StyleSheet.create({
         alignItems: 'stretch',
         paddingTop: 20,
         borderRadius: 20,
+=======
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+
+    content: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'stretch',
+        alignSelf: 'stretch',
+        padding: 20,
+>>>>>>> 1384d75 (Clena MAC system ok)
         backgroundColor: themes.light.colorWhite,
         shadowColor: "#000",
         shadowOffset: {
@@ -29,6 +44,7 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 4,
+<<<<<<< HEAD
         elevation: 3
     },
 
@@ -38,12 +54,23 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase',
         fontWeight: 'bold',
         fontSize: 14,
+=======
+        elevation: 5
+    },
+
+    title: {
+        textAlign: 'center',
+        textTransform: 'uppercase',
+        fontWeight: '700',
+        fontSize: 16,
+>>>>>>> 1384d75 (Clena MAC system ok)
         color: themes.light.colorTextPrimary
     },
 
     subtitle: {
         textAlign: 'center',
         textTransform: 'uppercase',
+<<<<<<< HEAD
         fontSize: 14,
         color: themes.light.colorTextSecondary,
     },
@@ -84,6 +111,10 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
         color: themes.light.colorBrand
+=======
+        color: themes.light.colorTextSecondary,
+        fontSize: 14
+>>>>>>> 1384d75 (Clena MAC system ok)
     }
 })
 

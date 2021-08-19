@@ -8,7 +8,11 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
+<<<<<<< HEAD
       "backgroundColor": "#ffffff"
+=======
+      "backgroundColor": "#FFFFFF"
+>>>>>>> 1384d75 (Clena MAC system ok)
     },
     "updates": {
       "fallbackToCacheTimeout": 0
