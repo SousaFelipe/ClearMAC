@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "ClearMAC",
-    "slug": "ClearMAC",
-    "version": "1.0.0",
+    "slug": "clear-mac",
+    "version": "2.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -18,16 +18,22 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.flpss.clearmac",
+      "buildNumber": "2.0.0"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.flpss.clearmac",
+      "versionCode": 5
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "extra": {
+      "eas": {
+        "projectId": "6dac1d17-82a4-4afa-99dd-76b2cfd7fd08"
+      }
     }
   }
 }
