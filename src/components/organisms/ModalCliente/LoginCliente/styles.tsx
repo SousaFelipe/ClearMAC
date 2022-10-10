@@ -44,7 +44,6 @@ const styles = StyleSheet.create({
     mac: {
         alignSelf: 'flex-end',
         fontSize: 14,
-        color: themes['light'].colorTextDisabled,
         textAlign: 'right'
     }
 })

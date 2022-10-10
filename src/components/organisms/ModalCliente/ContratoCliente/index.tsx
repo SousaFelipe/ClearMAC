@@ -35,13 +35,18 @@ export default function ContratoCliente(props: any) {
 
 
     function getIconByStatus() {
-        return (contrato?.status == 'A')
-            ? require('../../../../../assets/icons/online.png')
-            : (contrato?.status_internet == 'FA')
-                ? require('../../../../../assets/icons/atrasado.png')
-                : (contrato?.status_internet == 'CM' || contrato?.status_internet == 'CA')
-                    ? require('../../../../../assets/icons/bloqueado.png')
-                    : require('../../../../../assets/icons/desativado.png');
+
+        if (contrato?.status == 'A') {
+            return (contrato?.status_internet == 'A')
+                ? require('../../../../../assets/icons/online.png')
+                : (contrato?.status_internet == 'FA')
+                    ? require('../../../../../assets/icons/atrasado.png')
+                    : (contrato?.status_internet == 'CM' || contrato?.status_internet == 'CA')
+                        ? require('../../../../../assets/icons/bloqueado.png')
+                        : require('../../../../../assets/icons/desativado.png');
+        }
+        
+        return  require('../../../../../assets/icons/desativado.png');
     }
 
 

@@ -116,7 +116,7 @@ export default function AuthPage() {
 
                     <Image
                         style={{ width: 86, height: 86 }}
-                        source={ require('../../../../assets/icon.png') }/>
+                        source={ require('../../../../assets/images/icon.png') }/>
 
                     <Text style={{ marginBottom: 30, ...labels.primaryLarge }}>Clear M:A:C</Text>
 

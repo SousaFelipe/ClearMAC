@@ -29,9 +29,9 @@ export default function LoginCliente(props: any) {
     const [login, setLogin] = useState<any>({});
     const [mac, setMAC] = useState<string>('');
 
-    const [copyPppColor, setCopyPppColor] = useState<ColorValue>('transparent');
-    const [copyPasColor, setCopyPasColor] = useState<ColorValue>('transparent');
-    const [clenMacColor, setClenMacColor] = useState<ColorValue>('transparent');
+    const [copyPppColor, setCopyPppColor] = useState<ColorValue[]>(['transparent', themes['light'].colorTextPrimary]);
+    const [copyPasColor, setCopyPasColor] = useState<ColorValue[]>(['transparent', themes['light'].colorTextDisabled]);
+    const [clenMacColor, setClenMacColor] = useState<ColorValue[]>(['transparent', themes['light'].colorTextDisabled]);
 
 
 
@@ -51,10 +51,6 @@ export default function LoginCliente(props: any) {
 
 
     const isOnline = () => (login && login.online == 'S');
-
-
-
-    const hasMAC = () => (login && login.mac && login.mac.length == 17);
 
 
 
@@ -139,14 +135,14 @@ export default function LoginCliente(props: any) {
 
                 <Pressable
                     style={{
-                        backgroundColor: copyPppColor,
+                        backgroundColor: copyPppColor[0],
                         ...styles.copyContent
                     }}
                     delayLongPress={2000}
                     onLongPress={ handleCopyPPPoE }
-                    onPressIn={ () => setCopyPppColor(themes['light'].colorBrand) }
-                    onPressOut={ () => setCopyPppColor('transparent') }>
-                    <Text style={{ fontSize: 16, color: themes.light.colorTextPrimary }} numberOfLines={ 1 }>{ login.login }</Text>
+                    onPressIn={ () => setCopyPppColor([themes['light'].colorBrand, 'white']) }
+                    onPressOut={ () => setCopyPppColor(['transparent', themes['light'].colorTextPrimary]) }>
+                    <Text style={{ fontSize: 16, color: copyPppColor[1] }} numberOfLines={ 1 }>{ login.login }</Text>
                 </Pressable>
 
             </View>
@@ -168,26 +164,26 @@ export default function LoginCliente(props: any) {
 
                     <Pressable
                         style={{
-                            backgroundColor: copyPasColor,
+                            backgroundColor: copyPasColor[0],
                             ...styles.copyContent
                         }}
                         delayLongPress={2000}
                         onLongPress={ handleCopySenha }
-                        onPressIn={ () => setCopyPasColor(themes['light'].colorBrand) }
-                        onPressOut={ () => setCopyPasColor('transparent') }>
-                        <Text style={{ color: themes.light.colorTextSecondary }} numberOfLines={ 1 }>{ login.senha }</Text>
+                        onPressIn={ () => setCopyPasColor([themes['light'].colorBrand, 'white']) }
+                        onPressOut={ () => setCopyPasColor(['transparent', themes['light'].colorTextDisabled]) }>
+                        <Text style={{ color: copyPasColor[1] }} numberOfLines={ 1 }>{ login.senha }</Text>
                     </Pressable>
 
                     <Pressable
                         style={{
-                            backgroundColor: clenMacColor,
+                            backgroundColor: clenMacColor[0],
                             ...styles.copyContent
                         }}
                         delayLongPress={2000}
                         onLongPress={ handleClearMAC }
-                        onPressIn={ () => setClenMacColor(themes['light'].colorBrand) }
-                        onPressOut={ () => setClenMacColor('transparent') }>
-                        <Text style={ styles.mac } numberOfLines={ 1 }>{ textMAC }</Text>
+                        onPressIn={ () => setClenMacColor([themes['light'].colorBrand, 'white']) }
+                        onPressOut={ () => setClenMacColor(['transparent', themes['light'].colorTextDisabled]) }>
+                        <Text style={{ color: clenMacColor[1], ...styles.mac }} numberOfLines={ 1 }>{ textMAC }</Text>
                     </Pressable>
 
                 </View>
